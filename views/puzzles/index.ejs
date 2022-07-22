@@ -1,4 +1,26 @@
 <%- include('../partials/header') %>
 
-<h1> all puzzles go here </h1>
+<section id="puzzle-index" >
+    <table>
+        <thead>
+            <tr>
+                <th></th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <% puzzles.forEach(function(p) { %>
+            <tr>
+                <td><img src="<%= p.image %>" alt=""></td>
+                <td><%= p.name %></td>
+                <td><%= p.pieceAmount %></td>
+                <td><a href="/puzzles/<%= p._id%>">Details</a></td>
+            </tr>
+            <% }); %>
+        </tbody>
+    </table>
+</section>
+
 <%- include('../partials/footer') %>

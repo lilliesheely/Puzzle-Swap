@@ -26,4 +26,25 @@ a {
   padding: 10px;
 }
 
+/*-- ADD NEW PUZZLE VIEW---*/
 
+#new-puzzle-form {
+  display: grid;
+  grid-template-columns: 20vmin 50vmin;
+  justify-content: center;
+  text-align: left;
+  gap: 5px; 
+}
+#new-puzzle-button {
+  grid-template-columns: span 2;
+}
+
+/*-- ALl Puzzles View ---*/
+#puzzle-index {
+  display: grid;
+  grid-template-rows: 30vmin 30vmin 30vmin;
+  justify-content: center;
+  text-align: left;
+  gap: 5px; 
+
+}

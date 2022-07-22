@@ -3,6 +3,8 @@ var router = express.Router();
 const puzzlesCtrl  = require('../controllers/puzzles'); 
 
 router.get('/', puzzlesCtrl.index); 
-//router.get('/)
+router.get('/new', puzzlesCtrl.new); 
+router.post('/', puzzlesCtrl.create);
+router.get('/:id', puzzlesCtrl.show);  
 
 module.exports = router;

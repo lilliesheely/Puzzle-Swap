@@ -1,0 +1,33 @@
+<%- include('../partials/header') %>
+
+<form id="new-puzzle-form" action="/puzzles" method="POST">
+    <label>Upload an image URL:</label>
+    <input type="text" name="image">
+    <label>Name:</label>
+    <input type="text" name="name">
+    <label>Description:</label>
+    <input type="text" name="description">
+    <label>Piece Amount:</label>
+    <input type="text" name="pieceAmount">
+    <label>Dimensions:</label>
+    <input type="num" name="dimensions">
+    <label>Difficulty Level:</label>
+    <select name="difficulty-level">
+        <option value="easy!">Easy!</option>
+        <option value="medium">Easy, but takes some time</option>
+        <option value="challenging">Challenging, but doable</option>
+        <option value="tough">Tough</option>
+        <option value="impossible">Practically</option>
+    </select>
+    <input type="submit" value="Add Puzzle" id="new-puzzle-button">
+</form>
+
+
+
+
+
+
+
+
+
+<%- include('../partials/footer') %>
