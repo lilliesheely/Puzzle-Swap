@@ -8,11 +8,14 @@
     <nav>
         <a href="/puzzles">All Puzzles</a>  
         <% if (user) { %>     
-        <a href="/puzzles/new">New Puzzles</a>    
+        <a href="/puzzles/new">Add New</a>    
         <a href="/logout">Log Out</a>
+        <img class="avatar" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer">
         <% } else { %>
-        <a href="/auth/google" class="login">LOG IN</a>
+        <a href="/auth/google" class="login">Register/Log In</a>
         <% } %>
     </nav>
     <h1><%= title %></h1>
+  
+
   

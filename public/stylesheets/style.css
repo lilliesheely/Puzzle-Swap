@@ -1,8 +1,29 @@
-body {
-  padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+* {
+  font-family: Helvetica;;
 }
-
 a {
   color: #00B7FF;
 }
+
+body {
+  height: 100vh;
+  text-align: center;
+}
+
+nav > img {
+  width: 34px;
+  object-fit: contain;
+  padding: 15px;
+}
+
+body > nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+a {
+  padding: 10px;
+}
+
+
