@@ -1,24 +1,18 @@
 <%- include('../partials/header') %>
 
 <section id="details-page" >
-  
-    <div id="details-image"> <img src="<%= puzzle.image %>" alt="puzzle image"></div>
+   <img id="details" src="<%= puzzle.image %>" alt="puzzle" height="400" width="300">
     <br>
-    <br>
-    <div></div>
-    <% if (!user) { %>     
-    <!-- <div>Name:</div> -->
     <div><%= puzzle.name%></div>
-    <!-- <div>Description:</div> -->
     <div><%= puzzle.description%></div>
-    <!-- <div>Piece Amount:</div> -->
     <div><%= puzzle.pieceAmount%></div>
-    <!-- <div>Dimensions:</div> -->
     <div><%= puzzle.dimensions%></div>
-    <!-- <div>Difficulty Rating:</div> -->
     <div><%= puzzle.difficultyRating%></div>
-    <% } else { %>
-    <div id="borrow-button"><a href="">Request to Borrow!</a></div>
+    <% if (user) { %>   
+        <div id="borrow-button"><a href="">Request to Borrow!</a></div>
+        <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
+            <button type="submit">X</button>
+    </form>
     <% } %>
 </section>
 

@@ -4,7 +4,7 @@ const passport = require('passport');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('welcome', { title: 'INDEX' });
+  res.render('welcome', { title: 'Russian Hill Puzzle Swap' });
 });
 
 router.get('/auth/google', passport.authenticate(
@@ -19,7 +19,7 @@ router.get('/auth/google', passport.authenticate(
 router.get('/oauth2callback', passport.authenticate(
   'google',
   {
-    successRedirect: '/',
+    successRedirect: '/puzzles',
     failureRedirect: '/'
   }
 ));

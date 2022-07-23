@@ -1,6 +1,7 @@
 * {
   font-family: Helvetica;;
 }
+
 a {
   color: #00B7FF;
 }
@@ -26,7 +27,7 @@ a {
   padding: 10px;
 }
 
-/*-- ADD NEW PUZZLE VIEW---*/
+/*-- Add ---*/
 
 #new-puzzle-form {
   display: grid;
@@ -39,7 +40,7 @@ a {
   grid-template-columns: span 2;
 }
 
-/*-- ALl Puzzles View ---*/
+/*-- All Puzzles View ---*/
 #puzzle-index {
   display: grid;
   grid-template-rows: 30vmin 30vmin 30vmin;
@@ -57,4 +58,3 @@ a {
   text-align: center;
   gap: 5px; 
 }
-

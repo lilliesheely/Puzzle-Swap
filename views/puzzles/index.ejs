@@ -13,7 +13,7 @@
         <tbody>
             <% puzzles.forEach(function(p) { %>
             <tr>
-                <td><img src="<%= p.image %>" alt=""></td>
+                <td><img src="<%= p.image %>" alt="" width="96" height="110"></td>
                 <td><%= p.name %></td>
                 <td><%= p.pieceAmount %></td>
                 <td><a href="/puzzles/<%= p._id%>">Details</a></td>

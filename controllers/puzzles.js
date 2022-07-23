@@ -1,10 +1,12 @@
 const Puzzle = require('../models/puzzle'); 
 
+
 module.exports = {
     index, 
     new: newPuzzle, 
     create, 
-    show
+    show, 
+    delete: deletePuzzle
 }
 
 function index(req, res) {
@@ -18,10 +20,12 @@ function newPuzzle(req, res){
     }
 
 function create(req, res){
+    req.body.user = req.user._id; 
+    req.body.userName = req.user.name; 
+    req.body.userAvatar = req.user.avatar; 
     const puzzle = new Puzzle(req.body); 
     puzzle.save(function(err) {
         if (err) return res.redirect('/puzzles/new');
-        console.log(puzzle);
         res.redirect('/puzzles');
     })
 }
@@ -29,6 +33,19 @@ function create(req, res){
 function show(req, res){
     Puzzle.findById(req.params.id, function(err, puzzle){
         res.render('puzzles/show', {title: 'Puzzle Detail', puzzle})
-
     }) 
 }
+
+async function deletePuzzle(req, res, next) {
+    try {
+        const puzzle = await Puzzle.findById(req.params.id)
+        console.log(puzzle); 
+        if (!puzzle) throw new Error('Not your puzzle to remove!');
+        puzzle.delete(req.params.id); 
+        await 
+        res.redirect(`/puzzles`)
+    } catch (err) {
+        return next (err);
+    }
+} 
+
