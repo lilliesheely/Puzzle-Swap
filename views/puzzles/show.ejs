@@ -8,14 +8,19 @@
     <div><%= puzzle.pieceAmount%></div>
     <div><%= puzzle.dimensions%></div>
     <div><%= puzzle.difficultyRating%></div>
-    <% if (user) { %>   
-        <div id="borrow-button"><a href="">Request to Borrow!</a></div>
+   
+ 
+    <% if (user && user._id.equals(puzzle.user) ) { %> 
         <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
             <button type="submit">X</button>
-    </form>
+    </form>    
+    <% } else if (!user._id.equals(puzzle.user)) { %>
+    <div id="borrow-button"><a href="">Request to Borrow!</a></div>
     <% } %>
+
 </section>
 
 <%- include('../partials/footer') %>
+
 
 

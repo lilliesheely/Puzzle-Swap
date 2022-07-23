@@ -3,7 +3,7 @@
 }
 
 a {
-  color: #00B7FF;
+  color: #01080a;
 }
 
 body {
@@ -70,35 +70,14 @@ a {
   width: 40vh;
   padding: 5px;
 }
-
-
-
-
-
 .image-index { 
-  max-width: 300px;
+  max-width: 275px;
   max-height: 600px;
 }
-
-.image-show {
-  max-width: 500px;
-  max-height: 600px;
-}
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 /*-- Specific Puzzles View (show page)---*/
-#details-page {
-
+.image-show {
+  max-width: 500px;
+  max-height: 600px;
 }
