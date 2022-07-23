@@ -48,3 +48,13 @@ a {
   gap: 5px; 
 
 }
+
+#details-page{
+  display: grid;  
+  grid-template-columns: 20vmin;
+  justify-content: center;
+  align-items: center; 
+  text-align: center;
+  gap: 5px; 
+}
+

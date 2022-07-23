@@ -1,11 +1,27 @@
 <%- include('../partials/header') %>
 
-
-<h1>this is a show page</h1>
-
 <section id="details-page" >
+  
+    <div id="details-image"> <img src="<%= puzzle.image %>" alt="puzzle image"></div>
+    <br>
+    <br>
     <div></div>
-    <div></div>
+    <% if (!user) { %>     
+    <!-- <div>Name:</div> -->
+    <div><%= puzzle.name%></div>
+    <!-- <div>Description:</div> -->
+    <div><%= puzzle.description%></div>
+    <!-- <div>Piece Amount:</div> -->
+    <div><%= puzzle.pieceAmount%></div>
+    <!-- <div>Dimensions:</div> -->
+    <div><%= puzzle.dimensions%></div>
+    <!-- <div>Difficulty Rating:</div> -->
+    <div><%= puzzle.difficultyRating%></div>
+    <% } else { %>
+    <div id="borrow-button"><a href="">Request to Borrow!</a></div>
+    <% } %>
 </section>
 
 <%- include('../partials/footer') %>
+
+
