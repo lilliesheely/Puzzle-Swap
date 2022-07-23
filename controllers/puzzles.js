@@ -10,9 +10,11 @@ module.exports = {
 }
 
 function index(req, res) {
-    Puzzle.find({}, function(err, puzzles) {
-        res.render('puzzles/index', {title: 'All Puzzles', puzzles}); 
-    })
+   const puzzle = Puzzle.find({})
+   .sort('-pieceAmount')
+   .exec(function(err, puzzles) {
+       res.render('puzzles/index', {title: 'All Puzzles', puzzles}); 
+   }) 
 }
 
 function newPuzzle(req, res){ 

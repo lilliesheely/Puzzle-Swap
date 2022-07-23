@@ -9,11 +9,12 @@
         <tbody class="t-body" >
             <% puzzles.forEach(function(p) { %>
             <tr class="each-puzzle">
+        
                 <td ><img src="<%= p.image %>" alt="" class="image-index">
                     <br>
                     <%= p.name %>
                     <br>
-                    <%= p.pieceAmount %>
+                    <%= p.pieceAmount %> pieces
                     <br>
                     <a href="/puzzles/<%= p._id%>">Details</a>
                 </td>
