@@ -1,22 +1,23 @@
 <%- include('../partials/header') %>
-
 <section id="puzzle-index" >
     <table>
         <thead>
             <tr>
-                <th></th>
-                <th></th>
-                <th></th>
-                <th></th>
+                <th></th><br>
+               
             </tr>
         </thead>
-        <tbody>
+        <tbody class="t-body" >
             <% puzzles.forEach(function(p) { %>
-            <tr>
-                <td><img src="<%= p.image %>" alt="" width="96" height="110"></td>
-                <td><%= p.name %></td>
-                <td><%= p.pieceAmount %></td>
-                <td><a href="/puzzles/<%= p._id%>">Details</a></td>
+            <tr class="each-puzzle">
+                <td ><img src="<%= p.image %>" alt="" class="image-index">
+                    <br>
+                    <%= p.name %>
+                    <br>
+                    <%= p.pieceAmount %>
+                    <br>
+                    <a href="/puzzles/<%= p._id%>">Details</a>
+                </td>
             </tr>
             <% }); %>
         </tbody>
@@ -24,3 +25,4 @@
 </section>
 
 <%- include('../partials/footer') %>
+

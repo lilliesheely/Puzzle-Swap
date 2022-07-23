@@ -1,5 +1,5 @@
 * {
-  font-family: Helvetica;;
+  font-family: "Nunito", sans-serif; 
 }
 
 a {
@@ -8,7 +8,16 @@ a {
 
 body {
   height: 100vh;
-  text-align: center;
+  text-align: center; 
+  margin: 0;
+}
+
+body > nav {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background-color: antiquewhite;
+  margin: 0; 
 }
 
 nav > img {
@@ -17,17 +26,13 @@ nav > img {
   padding: 15px;
 }
 
-body > nav {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-}
+
 
 a {
   padding: 10px;
 }
 
-/*-- Add ---*/
+/*-- Add puzzle form ---*/
 
 #new-puzzle-form {
   display: grid;
@@ -42,19 +47,58 @@ a {
 
 /*-- All Puzzles View ---*/
 #puzzle-index {
-  display: grid;
-  grid-template-rows: 30vmin 30vmin 30vmin;
-  justify-content: center;
-  text-align: left;
-  gap: 5px; 
-
+  grid-template-columns: repeat(3, 20vh);
+  grid-template-rows: 40vmin;
+  padding: 25px;  
 }
 
-#details-page{
-  display: grid;  
-  grid-template-columns: 20vmin;
+.t-body {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5vmin;
   justify-content: center;
-  align-items: center; 
+}
+
+
+.each-puzzle {
+  display: grid;
+  border: 4px;
+  border-style: dotted;
+  justify-content: center;
+  align-items: center;
   text-align: center;
-  gap: 5px; 
+  width: 40vh;
+  padding: 5px;
+}
+
+
+
+
+
+.image-index { 
+  max-width: 300px;
+  max-height: 600px;
+}
+
+.image-show {
+  max-width: 500px;
+  max-height: 600px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*-- Specific Puzzles View (show page)---*/
+#details-page {
+
 }
