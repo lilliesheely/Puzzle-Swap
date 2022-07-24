@@ -13,9 +13,12 @@
     <% if (user && user._id.equals(puzzle.user) ) { %> 
         <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
             <button type="submit">X</button>
-    </form>    
+        </form>    
+    <!-- TO DO: HIDE PUZZLE ON INDEX VIEW IF CHECKED -->
+        <label for="on-loan">On Loan</label>
+        <input type="checkbox" name="on-loan" unchecked>
     <% } else if (!user._id.equals(puzzle.user)) { %>
-    <div id="borrow-button"><a href="">Request to Borrow!</a></div>
+        <div id="borrow-button"><a href="">Request to Borrow!</a></div>
     <% } %>
 
 </section>
