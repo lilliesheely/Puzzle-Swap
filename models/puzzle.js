@@ -15,6 +15,4 @@ const puzzleSchema = new Schema ({
     timestamps: true
 })
 
-
-
 module.exports = mongoose.model('Puzzle', puzzleSchema);

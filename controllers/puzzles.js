@@ -1,5 +1,5 @@
 const Puzzle = require('../models/puzzle'); 
-
+const Message = require('../models/message'); 
 
 module.exports = {
     index, 

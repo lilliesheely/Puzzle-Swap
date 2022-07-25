@@ -18,7 +18,7 @@
         <label for="on-loan">On Loan</label>
         <input type="checkbox" name="on-loan" unchecked>
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
-        <div id="borrow-button"><a href="/messages/:id">Request to Borrow!</a></div>
+        <div id="borrow-button"><a href="/puzzles/<%= puzzle._id %>/messages/<%= message._id %>">Request to Borrow!</a></div>
     <% } %>
 
 </section>

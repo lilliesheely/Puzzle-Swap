@@ -7,25 +7,18 @@ const messageSchema = new Schema ({
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
-    message:{
-        text: { type:String, required:true }
-    }, 
-    users: [{
-        user: { 
-            type:mongoose.Schema.Types.ObjectId, 
-            ref:'User', 
-            required: true 
-        }
-    }],
-    sender: { 
-        type: mongoose.Schema.Types.ObjectId, 
-        ref:'User', 
-        required: true 
+    recipient: {
+        type: Schema.Types.ObjectId, 
+        ref: "User",
     },
-    read: { 
-        type: Date 
-    }
+    body: String, 
+    read: Date, 
+    puzzle: {
+        type: Schema.Types.ObjectId, 
+        ref: 'Puzzle'
+    }, 
 }, {
     timestamps: true 
 })
 
+module.exports = mongoose.model('Message', messageSchema);

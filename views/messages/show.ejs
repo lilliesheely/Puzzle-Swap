@@ -1,24 +1,10 @@
 <%- include('../partials/header')%>
 <h1>This is a message show page</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% %>
-        <tr>
-            <td><%= r.message%></td>
-            <td><%= r.date %></td>
-        </tr>
-    </tbody>
-</table>
 
 <section class="message-room">
 
-    <form action="POST">
+    <form action="/messages/:id" method="POST">
         <textarea name="content"></textarea>
         <input type="submit" value="Send Message">
     </form>
