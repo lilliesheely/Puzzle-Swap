@@ -34,7 +34,9 @@ function create(req, res){
 
 function show(req, res){
     Puzzle.findById(req.params.id, function(err, puzzle){
-        res.render('puzzles/show', {title: 'Puzzle Detail', puzzle})
+        Message.find({}, function(err, message) {
+            res.render('puzzles/show', {title: 'Puzzle Detail', puzzle, message})
+        })
     }) 
 }
 

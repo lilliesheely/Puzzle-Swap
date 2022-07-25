@@ -18,7 +18,10 @@
         <label for="on-loan">On Loan</label>
         <input type="checkbox" name="on-loan" unchecked>
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
-        <div id="borrow-button"><a href="/puzzles/<%= puzzle._id %>/messages/<%= message._id %>">Request to Borrow!</a></div>
+        <form action="/puzzles/<%= puzzle._id%>/messages/<%= message._id%>" method="POST">
+            <textarea name="content"></textarea>
+            <input type="submit" value="Send Message to borrow puzzle">
+        </form>
     <% } %>
 
 </section>

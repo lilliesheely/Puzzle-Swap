@@ -1,13 +1,14 @@
 <%- include('../partials/header')%>
+
+
+
 <h1>This is a message show page</h1>
 
 
-<section class="message-room">
-
-    <form action="/messages/:id" method="POST">
-        <textarea name="content"></textarea>
-        <input type="submit" value="Send Message">
-    </form>
+<form action="/messages/:id" method="POST">
+    <textarea name="content"></textarea>
+    <input type="submit" value="Send Message">
+</form>
 </section>
 
 
