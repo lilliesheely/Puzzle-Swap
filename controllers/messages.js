@@ -3,7 +3,8 @@ const Puzzle = require('../models/puzzle');
 
 module.exports = {
     show, 
-    create
+    create, 
+    index
 }
 
 function show(req, res){
@@ -13,27 +14,31 @@ function show(req, res){
 }
 
 function create(req, res){ 
-    const message = new Message(req.body) 
-        res.redirect(`/messages/${message._id}`)
-}; 
+    const message = new Message(req.body)
+    message.sender = req.user._id; 
+    message.recipient = req.params.ownerId;  
+    message.puzzle = req.params.puzzleId; 
+    message.save(function(err){
+        res.redirect(`/messages?filter=sent`); 
+    });
+} 
 
-    // req.body.user = req.user._id; 
-    // req.body.userName = req.user.name; 
-    // req.body.userAvatar = req.user.avatar; 
-    // const message = new Message(req.body); 
-    
-    // message.sender = req.body.user; 
-    // message.body = req.body
-    // message.push(req.body);
-    // message.save(function(err, messages){ 
-    //     if (err) return res.render('messages/show')
+function index(req, res){ 
+    let query; 
+    if (req.query.filter === 'received') {
+        query = Message.find({recipient: req.user._id})
+            .populate("puzzle")
+            .sort("-updatedAt")
+    } else { // sent messages
+        query = Message.find({sender: req.user._id})
+            .populate("puzzle")
+            .sort("-updatedAt")
+    }
+    query.exec(function(err, messages){
+        res.render('messages/index', {title: req.query.filter === 'received' ? 'Received Messages' : 'Sent Messages', messages});
+    });
+}
 
-
-
-
-    // function index(req, res){ 
-//        res.render('messages/index', {title: 'All Messages'});
-//    }
 
 
 // function newMessage(req, res) {

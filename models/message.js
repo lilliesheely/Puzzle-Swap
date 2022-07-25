@@ -11,8 +11,11 @@ const messageSchema = new Schema ({
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
+    read: {
+        type: Boolean,
+        default: false
+    }, 
     body: String, 
-    read: Date, 
     puzzle: {
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'

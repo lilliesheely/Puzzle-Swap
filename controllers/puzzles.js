@@ -29,15 +29,13 @@ function create(req, res){
     puzzle.save(function(err) {
         if (err) return res.redirect('/puzzles/new');
         res.redirect('/puzzles');
-    })
+    });
 }
 
 function show(req, res){
     Puzzle.findById(req.params.id, function(err, puzzle){
-        Message.find({}, function(err, message) {
-            res.render('puzzles/show', {title: 'Puzzle Detail', puzzle, message})
-        })
-    }) 
+        res.render('puzzles/show', {title: 'Puzzle Detail', puzzle});
+    }); 
 }
 
 async function deletePuzzle(req, res, next) {

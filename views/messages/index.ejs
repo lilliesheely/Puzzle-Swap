@@ -1,5 +1,13 @@
 <%- include('../partials/header')%>
 
-<h1>this is the messages index</h1>
+<% if (title.includes('Sent')) {%>
+    <a href="/messages?filter=received">Received Messages</a>
+<% } else { %>
+    <a href="/messages?filter=sent">Sent Messages</a>
+<% } %>
 
+<% messages.forEach(function(m) {%>
+    <div><%= m.puzzle.name %></div>
+    <p><%= m.body %></p>
+<% }) %>
 <%- include('../partials/footer')%>
