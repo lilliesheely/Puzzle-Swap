@@ -6,7 +6,9 @@ module.exports = {
     new: newPuzzle, 
     create, 
     show, 
-    delete: deletePuzzle
+    delete: deletePuzzle, 
+    edit, 
+    update
 }
 
 function index(req, res) {
@@ -52,3 +54,15 @@ async function deletePuzzle(req, res, next) {
     }
 } 
 
+function edit(req, res){
+   Puzzle.findById(req.params.id, function(err, puzzle){
+        res.render('puzzles/edit', {title: 'Edit Puzzle', puzzle})
+    });
+}
+
+function update(req, res){ 
+    Puzzle.findOneAndUpdate({_id: req.params.id}, req.body, function(err, puzzle) {
+        if (err) return res.render(`/puzzles/${puzzle._id}/edit`);
+        res.redirect(`/puzzles/${puzzle._id}` );
+    });
+}

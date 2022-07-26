@@ -1,0 +1,25 @@
+<%- include('../partials/header') %>
+
+<form id="new-puzzle-form" action="/puzzles/<%= puzzle._id %>?_method=PUT" method="POST" autocomplete="off">
+    <label>Upload an image URL:</label>
+    <input type="text" name="image" value="<%= puzzle.image %>">
+    <label>Name:</label>
+    <input type="text" name="name" value="<%= puzzle.name %>" maxlength="35">
+    <label>Description:</label>
+    <input type="text" name="description" value="<%= puzzle.description %>" maxlength="100">
+    <label>Piece Amount:</label>
+    <input type="number" name="pieceAmount" value="<%= puzzle.pieceAmount %>" maxlength="6">
+    <label>Dimensions:</label>
+    <input type="num" name="dimensions" value="<%= puzzle.dimensions %>">
+    <label>Difficulty Level:</label>
+    <select name="difficultyRating">
+        <option value="Easy">Easy</option>
+        <option value="Easy, but takes awhile">Easy, but takes awhile</option>
+        <option value="Challenging">Challenging</option>
+        <option value="Tough">Tough</option>
+        <option value="Practically Impossible">Practically Impossible</option>
+    </select>
+    <input type="submit" value="Save Puzzle" id="new-puzzle-button">
+</form>
+
+<%- include('../partials/footer') %>
