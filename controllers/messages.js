@@ -2,15 +2,8 @@ const Message = require('../models/message');
 const Puzzle = require('../models/puzzle'); 
 
 module.exports = {
-    show, 
     create, 
     index
-}
-
-function show(req, res){
-    Message.findOne(req.params.id, function(err, message){ 
-        res.render('messages/show', {title: 'Message Detail', message}); 
-    })
 }
 
 function create(req, res){ 
@@ -37,10 +30,4 @@ function index(req, res){
     query.exec(function(err, messages){
         res.render('messages/index', {title: req.query.filter === 'received' ? 'Received Messages' : 'Sent Messages', messages});
     });
-}
-
-
-
-// function newMessage(req, res) {
-//         res.render('messages/show', {title: "Request to Borrow"}); 
-// }
+ }

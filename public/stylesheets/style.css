@@ -26,8 +26,6 @@ nav > img {
   padding: 15px;
 }
 
-
-
 a {
   padding: 10px;
 }
@@ -41,6 +39,7 @@ a {
   text-align: left;
   gap: 5px; 
 }
+
 #new-puzzle-button {
   grid-template-columns: span 2;
 }
@@ -58,7 +57,6 @@ a {
   gap: 5vmin;
   justify-content: center;
 }
-
 
 .each-puzzle {
   display: grid;
@@ -82,3 +80,41 @@ a {
   max-height: 600px;
 }
 
+/*-- Message Index (message/index page)---*/
+
+.message-page {
+  display: flex;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+}
+
+.message-table {
+  justify-content: left;
+  align-items: center;
+}
+
+#message-headings {
+  display: grid;
+  grid-template-columns: 40vh 18vh 18vmin 25vmin 25vmin; 
+  font-size: 23px;
+  gap: 5px;
+}
+
+#message-content {
+  display: grid;
+  grid-template-columns: 40vh 18vh 18vmin 25vmin 25vmin;
+  font-size: 20px;
+  border: 1px;
+  border-style: dashed; 
+  margin-top: 4px;
+}
+
+.body-content {
+  font-style: italic;
+}
+
+#image-messages {
+  max-width: 275px;
+  max-height: 600px;
+}

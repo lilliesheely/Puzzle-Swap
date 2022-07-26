@@ -39,11 +39,12 @@ function show(req, res){
 }
 
 async function deletePuzzle(req, res, next) {
+    const message = Message.find({puzzle: req.params.id}); 
     try {
         const puzzle = await Puzzle.findById(req.params.id)
         console.log(puzzle); 
         if (!puzzle) throw new Error('Not your puzzle to remove!');
-        puzzle.delete(req.params.id); 
+        puzzle.delete(req.params.id);   
         await 
         res.redirect(`/puzzles`)
     } catch (err) {

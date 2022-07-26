@@ -1,13 +1,45 @@
 <%- include('../partials/header')%>
 
+
+
 <% if (title.includes('Sent')) {%>
     <a href="/messages?filter=received">Received Messages</a>
 <% } else { %>
     <a href="/messages?filter=sent">Sent Messages</a>
 <% } %>
 
-<% messages.forEach(function(m) {%>
-    <div><%= m.puzzle.name %></div>
-    <p><%= m.body %></p>
-<% }) %>
+<br><br><br>
+
+<section class="message-page" >
+    <table>
+        <thead>
+            <tr class="message-table" id="message-headings">
+                <th></th>
+                <th>Name</th>
+                <th>Pieces</th>
+                <th>Message</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            <tbody>
+                <% messages.forEach(function(m) {%>
+                <tr class="message-table" id="message-content">
+                    <td><img src="<%= m.puzzle.image %>" id="image-messages" alt="puzzle"></td>
+                    <td><%= m.puzzle.name %></td>
+                    <td><%= m.puzzle.pieceAmount %></td>
+                    <td class="body-content"><%= m.body %></td>
+                    <td>
+                        <form action="/puzzles/<%= m.puzzle._id%>/owner/<%= m.recipient %>/messages" method="POST">
+                            <textarea name="body"></textarea>
+                            <input type="submit" value="Reply to Request">
+                        </form>
+                    </td>
+                </tr>
+                <% }) %>
+            </tbody>
+        </tbody>
+    </table>
+
+</section>
 <%- include('../partials/footer')%>
