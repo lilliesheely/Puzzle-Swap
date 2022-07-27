@@ -18,8 +18,8 @@ function create(req, res){
     req.body.userName = req.user.name; 
     req.body.userAvatar = req.user.avatar; 
     message.sent = true; 
-    message.save(function(err, message){
-        res.redirect(`/messages/${message._id}`, message); 
+    message.save(function(err, messages){
+        res.redirect(`/messages/${message._id}`, messages); 
     });
 } 
 
@@ -40,8 +40,10 @@ function index(req, res){
 }
 
 function show(req, res) {
-    Message.findById(req.params.id, function(err, message) {
-        res.render('messages/show', {title: 'Message Detail', message});
+    Message.findById(req.params.id)
+        .populate('content')
+        .exec(function(err, puzzle, message) {
+        res.render('messages/show', {title: 'Message Detail', puzzle, message});
     });
 };
     

@@ -1,31 +1,24 @@
 <%- include('../partials/header')%>
 
-
-
+<section>
 <h1>This is a message show page</h1>
 
 <table>
-    <thead>
-        <tr>
-            <th></th>
-            <th>Name</th>
-            <th>Pieces</th>
-            <th>Message</th>
-            <th></th>
+    <thead> 
+        <tr>  
+            <th><img src="<%= puzzle.image %>" id="image-messages" alt="puzzle"></th>
         </tr>
     </thead>
     <tbody>
-        <tbody>
-         
-        </tbody>
-    </tbody>
+        <% message.forEach(function(m) { %> 
+            <th><%= m.content %></th>
+        <% }) %> 
+    </tbody>    
 </table>
-
-
-<form action="/messages/<%= message._id%>" method="POST">
-    <textarea name="content"></textarea>
-    <input type="submit" value="Send Message">
-</form>
+    <form action="/messages/<%= message._id%>" method="POST">
+        <textarea name="content"></textarea>
+        <input type="submit" value="Send Message">
+    </form>
 </section>
 
 

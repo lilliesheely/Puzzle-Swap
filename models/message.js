@@ -3,6 +3,8 @@ const Schema = mongoose.Schema;
 
 const conversationSchema = new Schema ({
     messages: String
+}, {
+    timestamps: true
 })
 
 const messageSchema = new Schema ({
