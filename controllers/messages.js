@@ -32,7 +32,6 @@ function create(req, res){
 //     });
 //  }
 
-<<<<<<< HEAD
  function index(req,res) {
     let query = Message.find({$or: [{recipient: req.user._id}, {sender: req.user._id}]})
     .populate("puzzle")
@@ -41,6 +40,3 @@ function create(req, res){
         res.render('messages/index', {title: "All Messages", messages});
     });
  }
-=======
- 
->>>>>>> 5a8a1f2 (Re-add Edit & Update)
