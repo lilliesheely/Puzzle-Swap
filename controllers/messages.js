@@ -6,7 +6,8 @@ module.exports = {
     create, 
     index,
     show, 
-    createReply
+    createReply, 
+    deleteReply
 }
 
 function create(req, res){ 
@@ -16,11 +17,9 @@ function create(req, res){
     req.body.puzzle = req.params.puzzleId;
     req.body.requesterName = req.user.name; 
     req.body.requesterAvatar = req.user.avatar; 
-    console.log(req.body, "First Message")
     const message = new Message(req.body);
     message.replies.push(req.body); 
     message.save(function(err, message){
-        console.log(message, message.replies, "create first message")
         res.redirect(`/messages/${message._id}`);
     });
 } 
@@ -34,13 +33,13 @@ function index(req, res){
 }
 
 function show(req, res) {
-    Message.findById(req.params.id)
+    Message.findById(req.params.id) 
         .populate('puzzle')
-        .sort('updateAt')
         .exec(function(err, message) {
-            res.render('messages/show', {title: 'Message Detail', message});
-    }); 
-}
+            message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
+            res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
+        })
+    }; 
 
 function createReply(req, res) {
     Message.findById(req.params.id, function (err, message) {
@@ -52,3 +51,15 @@ function createReply(req, res) {
         })
     });
 }
+
+async function deleteReply(req, res, next) { 
+    try {
+        const message = await Message.findOne({'replies._id': req.params.id, 'replies.user': req.user_id})
+        if (!message) throw new Error('Not your message to delete!');
+        message.replies.remove(req.params.id);   
+        await message.save(); 
+        res.redirect(`/messages/${message._id}`)
+    } catch (err) {
+        return next (err);
+    }
+} 

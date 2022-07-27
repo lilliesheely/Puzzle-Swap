@@ -43,7 +43,6 @@ function show(req, res){
 }
 
 async function deletePuzzle(req, res, next) {
-    const message = Message.find({puzzle: req.params.id}); 
     try {
         const puzzle = await Puzzle.findById(req.params.id)
         console.log(puzzle); 

@@ -143,14 +143,14 @@ a {
 
 #message-show-headings {
   display: grid;
-  grid-template-columns: 15vmin 30vmin 18vmin; 
+  grid-template-columns: 15vmin 30vmin 18vmin 20vmin; 
   font-size: 15px;
   gap: 5px;
 }
 
 #message-show-each-reply {
   display: grid;
-  grid-template-columns: 15vmin 30vmin 18vmin; 
+  grid-template-columns: 15vmin 30vmin 18vmin 20vmin; 
   font-size: 15px;
   gap: 5px;
   border-top: 2px dashed darkblue;

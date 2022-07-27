@@ -1,12 +1,18 @@
 <%- include('../partials/header')%>
 
 <section class="message-show-page" >
+    <form action="/messages/<%= message._id%>" method="POST" id="reply-button">
+        <textarea name="msg"></textarea><br>
+        <input type="submit" value="Send Reply" >
+    </form>
+    <br><br>
 <table>
     <thead> 
         <tr id="message-show-headings">  
             <th>User</th>
             <th>Message</th>
             <th>Message Sent</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
@@ -15,15 +21,19 @@
                 <td><%= m.userName %></td>
                 <td><%= m.msg %></td>
                 <td><%= m.createdAt%></td>
+                <td> 
+                    <% if (user && user._id.equals(m.user) ) { %> 
+                        <form action="/messages/<%= m._id %>?_method=DELETE" method ="POST"> 
+                            <button id="delete-button" type="submit">X</button> Delete Message
+                        </form>   
+                    <% } %>
+                </td>
             </tr>
         <% }) %>
     </tbody>    
 </table>
-<br><br>
-    <form action="/messages/<%= message._id%>" method="POST" id="reply-button">
-        <textarea name="msg"></textarea><br>
-        <input type="submit" value="Send Reply" >
-    </form>
+
+    
 </section>
 
 <%- include('../partials/footer')%>

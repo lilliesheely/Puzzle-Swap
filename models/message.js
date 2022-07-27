@@ -29,7 +29,6 @@ const messageSchema = new Schema ({
         type: Boolean,
         default: false
     }, 
-    requestMessage: String,
     replies: [repliesSchema], 
     puzzle: {
         type: Schema.Types.ObjectId, 
