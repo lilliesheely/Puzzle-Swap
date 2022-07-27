@@ -26,21 +26,26 @@ function create(req, res){
 } 
 
 function index(req, res){ 
-    Message.find({ $or: [{owner: req.user._id}, {requester: req.user._id} ]}, function(err, messages){
+    Message.find({ $or: [{owner: req.user._id}, {requester: req.user._id} ]})
+        .populate('puzzle')
+        .exec(function(err, messages){
         res.render('messages/index', {title: 'All Messages', messages})
-    })
+    });
 }
 
 function show(req, res) {
-    const message = Message.findById(req.params.id, function(err, message){
-        console.log(message, "show message")
-        res.render('messages/show', {title: 'Message Detail', message});
-    });
-};
+    Message.findById(req.params.id)
+        .populate('puzzle')
+        .sort('updateAt')
+        .exec(function(err, message) {
+            res.render('messages/show', {title: 'Message Detail', message});
+    }); 
+}
 
 function createReply(req, res) {
     Message.findById(req.params.id, function (err, message) {
         req.body.user = req.user._id
+        req.body.userName = req.user.name
         message.replies.push(req.body);
         message.save(function(err) {
         res.redirect(`/messages/${message._id}`);

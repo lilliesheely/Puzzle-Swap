@@ -5,16 +5,18 @@
         <thead>
             <tr class="message-table" id="message-headings-index">
                 <th></th>
-                <th>Name</th>
-                <th>Message Details</th>
+                <th>Requester</th>
+                <th>Puzzle Name</th>
+                <th></th>
             </tr>
         </thead>
         <tbody>
             <% messages.forEach(function(m) {%>
                 <tr class="each-message-index">
-                    <td><img src="<%= m.puzzle.image %>" alt="puzzle"></td>
+                    <td><img src="<%= m.puzzle.image %>" class="message-index-image" alt="puzzle"></td>
+                    <td><%= m.requesterName %></td>
                     <td><%= m.puzzle.name %></td>
-                    <td><a href="/messages/<%= m._id%>">Details</a></td>
+                    <td><a href="/messages/<%= m._id%>">Message &nbsp;Details</a></td>
                 </tr>
             <% }) %>
         </tbody>

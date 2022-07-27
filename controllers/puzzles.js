@@ -35,8 +35,8 @@ function create(req, res){
 }
 
 function show(req, res){
-    Puzzle.findById(req.params.id, function(err, puzzle){
-        Message.find({puzzle: req.params.id}, function(err, message){
+    Puzzle.findById(req.params.id, function(err, puzzle) {
+        Message.find({puzzle: req.params.id}, function(err, message) {
             res.render('puzzles/show', {title: 'Puzzle Detail', puzzle, message});
         })  
     }); 

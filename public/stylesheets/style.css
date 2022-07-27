@@ -101,33 +101,67 @@ a {
 
 #message-headings-index {
   display: grid;
-  grid-template-columns: 20vh 18vh 18vmin; 
+  grid-template-columns: 40vh 18vh 18vmin 18vmin; 
   font-size: 23px;
   gap: 5px;
 }
 
 .each-message-index {
   display: grid;
-  grid-template-columns: 20vh 18vh 18vmin; 
+  grid-template-columns: 40vh 18vh 18vmin 18vmin; 
   font-size: 23px;
   margin: 9px;
   border: 2px;
   border-style: dashed;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+}
+
+.each-message-index > a { 
+  align-self: center;
 }
 
 .body-content {
   font-style: italic;
 }
 
-#image-messages {
+.message-index-image {
   max-width: 275px;
   max-height: 600px;
+  padding: 10px;
 }
 
 
+/*-- Message Show (message/show page)---*/
 .message-show-page{
   display: grid;
-  grid-template-columns: 60vh;
-  font-size: 20px;
+  text-align: left;
+  align-items: center;
   justify-content: center;
 }
+
+#message-show-headings {
+  display: grid;
+  grid-template-columns: 15vmin 30vmin 18vmin; 
+  font-size: 15px;
+  gap: 5px;
+}
+
+#message-show-each-reply {
+  display: grid;
+  grid-template-columns: 15vmin 30vmin 18vmin; 
+  font-size: 15px;
+  gap: 5px;
+  border-top: 2px dashed darkblue;
+  align-items: center;
+  margin: 5px;
+  padding: 3px;
+}
+#reply-button{
+  display: grid;
+  grid-template-columns: span 3;
+  justify-content: center;
+}
+
+

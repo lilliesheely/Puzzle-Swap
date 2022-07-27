@@ -1,26 +1,28 @@
 <%- include('../partials/header')%>
 
-<section class="message-show-page">
+<section class="message-show-page" >
 <table>
     <thead> 
-        <tr>  
-            <th></th>
-            <th></th>
+        <tr id="message-show-headings">  
+            <th>User</th>
+            <th>Message</th>
+            <th>Message Sent</th>
         </tr>
     </thead>
     <tbody>
         <% message.replies.forEach(function(m) { %>
-            <tr class="each-reply">
-                <td><%= m.requesterName %><%= m.ownerName %></td>
+            <tr id="message-show-each-reply">
+                <td><%= m.userName %></td>
                 <td><%= m.msg %></td>
+                <td><%= m.createdAt%></td>
             </tr>
         <% }) %>
     </tbody>    
 </table>
 <br><br>
-    <form action="/messages/<%= message._id%>" method="POST">
+    <form action="/messages/<%= message._id%>" method="POST" id="reply-button">
         <textarea name="msg"></textarea><br>
-        <input type="submit" value="Send Reply">
+        <input type="submit" value="Send Reply" >
     </form>
 </section>
 
