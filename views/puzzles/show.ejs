@@ -18,7 +18,7 @@
         </form>   
         
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
-        <form action="/messages/<%= message._id %>" method="POST">
+        <form action="/messages %>" method="POST">
             <textarea name="body"></textarea> <br>
             <input type="submit" value="Send Message to Borrow Puzzle">
         </form>

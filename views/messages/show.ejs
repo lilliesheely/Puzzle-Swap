@@ -6,16 +6,16 @@
 <table>
     <thead> 
         <tr>  
-            <th><img src="<%= puzzle.image %>" id="image-messages" alt="puzzle"></th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
-        <% message.forEach(function(m) { %> 
+        <% message.replies.forEach(function(m) { %> 
             <th><%= m.content %></th>
         <% }) %> 
     </tbody>    
 </table>
-    <form action="/messages/<%= message._id%>" method="POST">
+    <form action="/messages/<%= message._id%>/replies" method="POST">
         <textarea name="content"></textarea>
         <input type="submit" value="Send Message">
     </form>

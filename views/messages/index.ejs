@@ -20,8 +20,8 @@
             <tbody>
                 <% messages.forEach(function(m) {%>
                 <tr class="message-table" id="message-content">
-                    <td><img src="<%= m.puzzle.image %>" id="image-messages" alt="puzzle"></td>
-                    <td><%= m.puzzle.name %></td>
+                    <td><img src="<%= m.image %>" id="image-messages" alt="puzzle"></td>
+                    <td><%= m.name %></td>
                     <td><a href="/messages/<%= m._id%>">Details</a></td>
                 </tr>
                 <% }) %>

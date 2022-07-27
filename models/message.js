@@ -24,7 +24,8 @@ const messageSchema = new Schema ({
         type: Boolean,
         default: false
     }, 
-    content: [conversationSchema], 
+    requestMessage: String,
+    replies: [conversationSchema], 
     puzzle: {
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'
