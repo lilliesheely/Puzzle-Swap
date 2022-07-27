@@ -1,33 +1,23 @@
 <%- include('../partials/header')%>
 
-<% if (title.includes('Sent')) {%>
-    <a href="/messages?filter=received">Received Messages</a>
-<% } else { %>
-    <a href="/messages?filter=sent">Sent Messages</a>
-<% } %>
-<br><br>
-
 <section class="message-page" >
     <table>
         <thead>
-            <tr class="message-table" id="message-headings">
+            <tr class="message-table" id="message-headings-index">
                 <th></th>
                 <th>Name</th>
                 <th>Message Details</th>
             </tr>
         </thead>
         <tbody>
-            <tbody>
-                <% messages.forEach(function(m) {%>
-                <tr class="message-table" id="message-content">
-                    <td><img src="<%= m.image %>" id="image-messages" alt="puzzle"></td>
-                    <td><%= m.name %></td>
+            <% messages.forEach(function(m) {%>
+                <tr class="each-message-index">
+                    <td><img src="<%= m.puzzle.image %>" alt="puzzle"></td>
+                    <td><%= m.puzzle.name %></td>
                     <td><a href="/messages/<%= m._id%>">Details</a></td>
                 </tr>
-                <% }) %>
-            </tbody>
+            <% }) %>
         </tbody>
     </table>
-
 </section>
 <%- include('../partials/footer')%>

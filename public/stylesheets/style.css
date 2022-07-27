@@ -68,6 +68,7 @@ a {
   width: 40vh;
   padding: 5px;
 }
+
 .image-index { 
   max-width: 275px;
   max-height: 600px;
@@ -98,20 +99,20 @@ a {
   align-items: center;
 }
 
-#message-headings {
+#message-headings-index {
   display: grid;
-  grid-template-columns: 40vh 18vh 18vmin 25vmin 25vmin; 
+  grid-template-columns: 20vh 18vh 18vmin; 
   font-size: 23px;
   gap: 5px;
 }
 
-#message-content {
+.each-message-index {
   display: grid;
-  grid-template-columns: 40vh 18vh 18vmin 25vmin 25vmin;
-  font-size: 20px;
-  border: 1px;
-  border-style: dashed; 
-  margin-top: 4px;
+  grid-template-columns: 20vh 18vh 18vmin; 
+  font-size: 23px;
+  margin: 9px;
+  border: 2px;
+  border-style: dashed;
 }
 
 .body-content {
@@ -121,4 +122,12 @@ a {
 #image-messages {
   max-width: 275px;
   max-height: 600px;
+}
+
+
+.message-show-page{
+  display: grid;
+  grid-template-columns: 60vh;
+  font-size: 20px;
+  justify-content: center;
 }

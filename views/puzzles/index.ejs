@@ -9,15 +9,10 @@
         <tbody class="t-body" id="on-loan-vis">
             <% puzzles.forEach(function(p) { %>
             <tr class="each-puzzle">
-        
-                <td ><img src="<%= p.image %>" alt="" class="image-index">
-                    <br>
-                    <%= p.name %>
-                    <br>
-                    <%= p.pieceAmount %> pieces
-                    <br>
-                    <a href="/puzzles/<%= p._id%>">Details</a>
-                </td>
+                <td><img src="<%= p.image %>" alt="" class="image-index"></td>
+                <td><%= p.name %></td>
+                <td><%= p.pieceAmount %> pieces</td>
+                <td><a href="/puzzles/<%= p._id%>">Details</a></td>
             </tr>
             <% }); %>
         </tbody>

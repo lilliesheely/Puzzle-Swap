@@ -1,8 +1,13 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const conversationSchema = new Schema ({
-    messages: String
+const repliesSchema = new Schema ({
+    msg: String,
+    user: {
+        type: Schema.Types.ObjectId, 
+        ref: "User",
+    },
+    userName: String
 }, {
     timestamps: true
 })
@@ -25,7 +30,7 @@ const messageSchema = new Schema ({
         default: false
     }, 
     requestMessage: String,
-    replies: [conversationSchema], 
+    replies: [repliesSchema], 
     puzzle: {
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'
