@@ -1,23 +1,28 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+const conversationSchema = new Schema ({
+    messages: String
+})
 
 const messageSchema = new Schema ({
     requester: {
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
-    senderName: String, 
-    senderAvatar: String,
+    requesterName: String, 
+    requesterAvatar: String,
     owner: {
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
+    ownerName: String, 
+    ownerAvatar: String,
     read: {
         type: Boolean,
         default: false
     }, 
-    body: String, 
+    content: [conversationSchema], 
     puzzle: {
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'

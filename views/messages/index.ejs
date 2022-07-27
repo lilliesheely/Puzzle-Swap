@@ -13,9 +13,7 @@
             <tr class="message-table" id="message-headings">
                 <th></th>
                 <th>Name</th>
-                <th>Pieces</th>
-                <th>Message</th>
-                <th></th>
+                <th>Message Details</th>
             </tr>
         </thead>
         <tbody>
@@ -24,14 +22,7 @@
                 <tr class="message-table" id="message-content">
                     <td><img src="<%= m.puzzle.image %>" id="image-messages" alt="puzzle"></td>
                     <td><%= m.puzzle.name %></td>
-                    <td><%= m.puzzle.pieceAmount %></td>
-                    <td class="body-content"><%= m.body %></td>
-                    <td>
-                        <form action="/puzzles/<%= m.puzzle._id%>/owner/<%= m.puzzle.user %>/messages" method="POST">
-                            <textarea name="body"></textarea>
-                            <input type="submit" value="Reply to Request">
-                        </form>
-                    </td>
+                    <td><a href="/messages/<%= m._id%>">Details</a></td>
                 </tr>
                 <% }) %>
             </tbody>

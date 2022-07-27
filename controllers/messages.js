@@ -1,19 +1,25 @@
 const Message = require('../models/message'); 
 const Puzzle = require('../models/puzzle'); 
+const User = require('../models/user'); 
 
 module.exports = {
     create, 
-    index
+    index,
+    show, 
+    createReply
 }
 
 function create(req, res){ 
-    const message = new Message(req.body)
+    const message = new Message()
+    message.content = req.body
     message.requester = req.user._id; 
     message.owner = req.params.ownerId;  
     message.puzzle = req.params.puzzleId; 
+    req.body.userName = req.user.name; 
+    req.body.userAvatar = req.user.avatar; 
     message.sent = true; 
-    message.save(function(err){
-        res.redirect(`/messages?filter=all`); 
+    message.save(function(err, message){
+        res.redirect(`/messages/${message._id}`, message); 
     });
 } 
 
@@ -31,13 +37,19 @@ function index(req, res){
     query.exec(function(err, messages){
         res.render('messages/index', {title: req.query.filter === 'received' ? 'Received Messages' : 'Sent Messages', messages});
     });
- }
+}
 
-//  function index(req,res) {
-//     let query = Message.find({$or: [{recipient: req.user._id}, {sender: req.user._id}]})
-//     .populate("puzzle")
-//     .sort("-updatedAt")
-//     query.exec(function(err, messages){
-//         res.render('messages/index', {title: "All Messages", messages});
-//     });
-//  }
+function show(req, res) {
+    Message.findById(req.params.id, function(err, message) {
+        res.render('messages/show', {title: 'Message Detail', message});
+    });
+};
+    
+function createReply(req, res){ 
+    const message = Message.findById(req.params.id, function(err, message){ 
+        message.content.push(req.body);
+        message.save(function(err, message) {
+        res.redirect(`/messages/${message._id}`, message); 
+        });
+    });
+} 

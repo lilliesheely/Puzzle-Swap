@@ -16,12 +16,12 @@ function index(req, res) {
    .sort('-pieceAmount')
    .exec(function(err, puzzles) {
        res.render('puzzles/index', {title: 'All Puzzles', puzzles}); 
-   }) 
+   }); 
 }
 
-function newPuzzle(req, res){ 
-        res.render('puzzles/new',{title: 'Add New Puzzle'})
-    }
+function newPuzzle(req, res) { 
+    res.render('puzzles/new', {title: 'Add New Puzzle'}); 
+}
 
 function create(req, res){
     req.body.user = req.user._id; 
@@ -36,7 +36,9 @@ function create(req, res){
 
 function show(req, res){
     Puzzle.findById(req.params.id, function(err, puzzle){
-        res.render('puzzles/show', {title: 'Puzzle Detail', puzzle});
+        Message.find({puzzle: req.params.id}, function(err, message){
+            res.render('puzzles/show', {title: 'Puzzle Detail', puzzle, message});
+        })  
     }); 
 }
 

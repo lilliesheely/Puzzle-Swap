@@ -4,8 +4,25 @@
 
 <h1>This is a message show page</h1>
 
+<table>
+    <thead>
+        <tr>
+            <th></th>
+            <th>Name</th>
+            <th>Pieces</th>
+            <th>Message</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <tbody>
+         
+        </tbody>
+    </tbody>
+</table>
 
-<form action="/messages/:id" method="POST">
+
+<form action="/messages/<%= message._id%>" method="POST">
     <textarea name="content"></textarea>
     <input type="submit" value="Send Message">
 </form>
@@ -13,3 +30,6 @@
 
 
 <%- include('../partials/footer')%>
+
+
+
