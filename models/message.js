@@ -3,13 +3,13 @@ const Schema = mongoose.Schema;
 
 
 const messageSchema = new Schema ({
-    sender: {
+    requester: {
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
     senderName: String, 
     senderAvatar: String,
-    recipient: {
+    owner: {
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
@@ -22,6 +22,7 @@ const messageSchema = new Schema ({
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'
     }, 
+    sent: Boolean
 }, {
     timestamps: true 
 })

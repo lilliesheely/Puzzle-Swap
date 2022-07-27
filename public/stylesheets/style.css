@@ -80,6 +80,10 @@ a {
   max-height: 600px;
 }
 
+#delete-button {
+  color: red;
+}
+
 /*-- Message Index (message/index page)---*/
 
 .message-page {

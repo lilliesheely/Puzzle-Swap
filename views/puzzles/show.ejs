@@ -8,32 +8,27 @@
     <div><%= puzzle.pieceAmount%></div>
     <div><%= puzzle.dimensions%></div>
     <div><%= puzzle.difficultyRating%></div>
-   
+   <br><br><br>
  
     <% if (user && user._id.equals(puzzle.user) ) { %> 
-        <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
-            <button type="submit">X</button>
-        </form>    
-<<<<<<< HEAD
-    <!-- ICE BOX TO DO: HIDE PUZZLE ON INDEX VIEW IF CHECKED -->
-        <label for="on-loan">On Loan</label>
-        <input type="checkbox" name="on-loan" unchecked>
         <a href="/puzzles/<%= puzzle._id %>/edit">Edit puzzle</a>
-=======
->>>>>>> 5a8a1f2 (Re-add Edit & Update)
+        <br><br><br>
+        <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
+            <button id="delete-button" type="submit">X</button> Delete Puzzle
+        </form>   
+        
+
+        
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
         <form action="/puzzles/<%= puzzle._id%>/owner/<%= puzzle.user %>/messages" method="POST">
             <textarea name="body"></textarea> <br>
             <input type="submit" value="Send Message to Borrow Puzzle">
         </form>
     <% } %>
-<<<<<<< HEAD
 
-=======
 <br><br><br>
 
  
->>>>>>> 5a8a1f2 (Re-add Edit & Update)
 </section>
 
 <%- include('../partials/footer') %>

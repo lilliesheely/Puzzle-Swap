@@ -8,35 +8,36 @@ module.exports = {
 
 function create(req, res){ 
     const message = new Message(req.body)
-    message.sender = req.user._id; 
-    message.recipient = req.params.ownerId;  
+    message.requester = req.user._id; 
+    message.owner = req.params.ownerId;  
     message.puzzle = req.params.puzzleId; 
+    message.sent = true; 
     message.save(function(err){
         res.redirect(`/messages?filter=all`); 
     });
 } 
 
-// function index(req, res){ 
-//     let query; 
-//     if (req.query.filter === 'received') {
-//         query = Message.find({recipient: req.user._id})
-//             .populate("puzzle")
-//             .sort("-updatedAt")
-//     } else { // sent messages
-//         query = Message.find({sender: req.user._id})
-//             .populate("puzzle")
-//             .sort("-updatedAt")
-//     }
-//     query.exec(function(err, messages){
-//         res.render('messages/index', {title: req.query.filter === 'received' ? 'Received Messages' : 'Sent Messages', messages});
-//     });
-//  }
-
- function index(req,res) {
-    let query = Message.find({$or: [{recipient: req.user._id}, {sender: req.user._id}]})
-    .populate("puzzle")
-    .sort("-updatedAt")
+function index(req, res){ 
+    let query; 
+    if (req.query.filter === 'received') {
+        query = Message.find({owner: req.user._id})
+            .populate("puzzle")
+            .sort("-updatedAt")
+    } else { // sent messages
+        query = Message.find({requester: req.user._id})
+            .populate("puzzle")
+            .sort("-updatedAt")
+    }
     query.exec(function(err, messages){
-        res.render('messages/index', {title: "All Messages", messages});
+        res.render('messages/index', {title: req.query.filter === 'received' ? 'Received Messages' : 'Sent Messages', messages});
     });
  }
+
+//  function index(req,res) {
+//     let query = Message.find({$or: [{recipient: req.user._id}, {sender: req.user._id}]})
+//     .populate("puzzle")
+//     .sort("-updatedAt")
+//     query.exec(function(err, messages){
+//         res.render('messages/index', {title: "All Messages", messages});
+//     });
+//  }

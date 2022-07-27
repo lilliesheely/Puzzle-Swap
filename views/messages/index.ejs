@@ -1,5 +1,12 @@
 <%- include('../partials/header')%>
 
+<% if (title.includes('Sent')) {%>
+    <a href="/messages?filter=received">Received Messages</a>
+<% } else { %>
+    <a href="/messages?filter=sent">Sent Messages</a>
+<% } %>
+<br><br>
+
 <section class="message-page" >
     <table>
         <thead>
