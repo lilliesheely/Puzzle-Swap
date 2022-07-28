@@ -1,12 +1,12 @@
 <%- include('../partials/header') %>
-<section id="puzzle-index" >
+<section class="puzzle-index" >
     <table>
         <thead>
             <tr>
                 <th></th> 
             </tr>
         </thead>
-        <tbody>
+        <tbody class="puzzle-index-body">
             <% puzzles.forEach(function(p) { %>
             <tr class="each-puzzle">
                 <td><img src="<%= p.image %>" alt="" id="image-index"></td>
