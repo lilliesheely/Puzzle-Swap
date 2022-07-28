@@ -59,9 +59,9 @@ function createReply(req, res) {
 
 async function deleteReply(req, res, next) { 
     try {
-        const message = await Message.find({'replies.user': req.user_id})
+        const message = await Message.findOne({'replies._id': req.params.id, 'replies.user': req.user._id})
         if (!message) throw new Error('Not your message to delete!');
-        message.replies.remove(req.params.id);   
+        message.replies.remove(req.params.id);
         await message.save(); 
         res.redirect(`/messages/${message._id}`)
     } catch (err) {
