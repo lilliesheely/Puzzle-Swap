@@ -5,9 +5,9 @@ const User = require('../models/user');
 module.exports = {
     create, 
     index,
-    show, 
+    show,   
     createReply, 
-    deleteReply
+    deleteReply 
 }
 
 function create(req, res){ 
@@ -15,7 +15,8 @@ function create(req, res){
     req.body.requester = req.user._id; 
     req.body.owner = req.params.ownerId;  
     req.body.puzzle = req.params.puzzleId;
-    req.body.requesterName = req.user.name; 
+    req.body.requesterName = req.user.name;
+    req.body.userName = req.user.name;     
     req.body.requesterAvatar = req.user.avatar; 
     const message = new Message(req.body);
     message.replies.push(req.body); 
@@ -33,6 +34,9 @@ function index(req, res){
 }
 
 function show(req, res) {
+    for (let key in req.body) {
+        if (req.body[key] === '') delete req.body[key];
+      }
     Message.findById(req.params.id) 
         .populate('puzzle')
         .exec(function(err, message) {
@@ -41,6 +45,7 @@ function show(req, res) {
         })
     }; 
 
+     
 function createReply(req, res) {
     Message.findById(req.params.id, function (err, message) {
         req.body.user = req.user._id
@@ -54,7 +59,7 @@ function createReply(req, res) {
 
 async function deleteReply(req, res, next) { 
     try {
-        const message = await Message.findOne({'replies._id': req.params.id, 'replies.user': req.user_id})
+        const message = await Message.find({'replies.user': req.user_id})
         if (!message) throw new Error('Not your message to delete!');
         message.replies.remove(req.params.id);   
         await message.save(); 

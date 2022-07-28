@@ -42,18 +42,19 @@ function show(req, res){
     }); 
 }
 
+
 async function deletePuzzle(req, res, next) {
     try {
-        const puzzle = await Puzzle.findById(req.params.id)
+        const puzzle = await Puzzle.findOneAndDelete({_id: req.params.id, user: req.user._id});
         console.log(puzzle); 
         if (!puzzle) throw new Error('Not your puzzle to remove!');
-        puzzle.delete(req.params.id);   
-        await 
+        await Message.deleteMany({puzzle: req.params.id});
         res.redirect(`/puzzles`)
     } catch (err) {
         return next (err);
     }
 } 
+
 
 function edit(req, res){
    Puzzle.findById(req.params.id, function(err, puzzle){

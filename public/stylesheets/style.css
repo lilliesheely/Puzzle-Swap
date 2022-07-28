@@ -93,6 +93,13 @@ a {
   align-items: center;
   justify-content: center;
 }
+.message-page{
+  display: grid;
+  text-align: left;
+  align-items: center;
+  justify-content: center;
+}
+
 
 .message-table {
   justify-content: left;
@@ -130,6 +137,11 @@ a {
   max-width: 275px;
   max-height: 600px;
   padding: 10px;
+}
+#disclaimer {
+  display: grid;
+  grid-template-columns: span 4;
+  justify-content: center;
 }
 
 
