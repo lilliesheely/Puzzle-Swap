@@ -1,5 +1,6 @@
 * {
-  font-family: "Nunito", sans-serif; 
+  font-family: 'Spline Sans Mono', monospace;
+  color: #01080a;
 }
 
 a {
@@ -12,50 +13,40 @@ body {
   margin: 0;
 }
 
-body > nav {
+nav {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  justify-content: flex-start;
   background-color: antiquewhite;
-  margin: 0; 
+  align-items: center;
+  padding: 10px;
+  gap: 20px;
 }
 
-nav > img {
+.nav2 {
+  display: flex;
+  margin-left: auto;
+  align-items: center;
+}
+
+#avatar {
   width: 34px;
   object-fit: contain;
-  padding: 15px;
+  padding-left: 8px;
 }
 
-a {
-  padding: 10px;
+
+/*-- Welcome page form ---*/
+
+#welcome-image {
+  width: 800px; 
+  height: 422px;
 }
 
-/*-- Add puzzle form ---*/
-
-#new-puzzle-form {
-  display: grid;
-  grid-template-columns: 20vmin 50vmin;
-  justify-content: center;
-  text-align: left;
-  gap: 5px; 
-}
-
-#new-puzzle-button {
-  grid-template-columns: span 2;
-}
-
-/*-- All Puzzles View ---*/
+/*-- All Puzzles View (index page) ---*/
 #puzzle-index {
   grid-template-columns: repeat(3, 20vh);
   grid-template-rows: 40vmin;
   padding: 25px;  
-}
-
-.t-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5vmin;
-  justify-content: center;
 }
 
 .each-puzzle {
@@ -69,111 +60,162 @@ a {
   padding: 5px;
 }
 
-.image-index { 
+#image-index { 
   max-width: 275px;
   max-height: 600px;
 }
 
+/*-- Add puzzle form (new page)---*/
 
-/*-- Specific Puzzles View (show page)---*/
+#new-puzzle-form {
+  display: grid;
+  grid-template-columns: 20vmin 50vmin;
+  justify-content: center;
+  text-align: left;
+  gap: 5px; 
+  font-family: 'Spline Sans Mono', monospace;
+}
+
+#new-button {
+  display: grid;
+  grid-column: span 2;
+  justify-content: center;  
+  align-items: center;
+}
+
+/*-- Show Puzzles View (show page)---*/
 .image-show {
   max-width: 500px;
   max-height: 600px;
 }
 
-#delete-button {
-  color: red;
-}
-
 /*-- Message Index (message/index page)---*/
 
-.message-page {
+.message-index-page {
   display: flex;
   text-align: left;
   align-items: center;
   justify-content: center;
 }
-.message-page{
+
+.message-index-headings{
   display: grid;
-  text-align: left;
-  align-items: center;
-  justify-content: center;
+  grid-template-columns: 40vmin 18vmin 20vmin 29vmin; 
+  font-size: 16px;
+  justify-content: left;
+  gap: 4px;
+  padding: 2vmin;
 }
 
 
-.message-table {
+.message-index-body {
+  display: grid;
+  grid-template-columns: 40vmin 18vmin 20vmin 29vmin; 
+  font-size: 16px;
+  border-style: dashed;
+  border-color: black;
   justify-content: left;
   align-items: center;
+  padding: 2vmin;
+  gap: 4px;
 }
 
-#message-headings-index {
-  display: grid;
-  grid-template-columns: 40vh 18vh 18vmin 18vmin; 
-  font-size: 23px;
-  gap: 5px;
-}
-
-.each-message-index {
-  display: grid;
-  grid-template-columns: 40vh 18vh 18vmin 18vmin; 
-  font-size: 23px;
-  margin: 9px;
-  border: 2px;
-  border-style: dashed;
-  justify-content: center;
-  align-items: center;
-  text-align: left;
-}
-
-.each-message-index > a { 
-  align-self: center;
-}
-
-.body-content {
-  font-style: italic;
-}
-
-.message-index-image {
+#message-index-image {
   max-width: 275px;
   max-height: 600px;
   padding: 10px;
 }
-#disclaimer {
-  display: grid;
-  grid-template-columns: span 4;
-  justify-content: center;
+
+#message-index-link {
+  font-size: 15px;
 }
 
-
-/*-- Message Show (message/show page)---*/
-.message-show-page{
+/*-- Message Show (show page)---*/
+.message-show-page {
   display: grid;
   text-align: left;
   align-items: center;
   justify-content: center;
 }
 
-#message-show-headings {
+.message-show-headings {
   display: grid;
-  grid-template-columns: 15vmin 30vmin 18vmin 20vmin; 
+  grid-template-columns: 15vmin 30vmin 20vmin 20vmin; 
   font-size: 15px;
   gap: 5px;
+  margin-left: 5px;
+  margin-bottom: 3px;
+  padding-left: 3px;
 }
 
-#message-show-each-reply {
+.message-show-replies {
   display: grid;
-  grid-template-columns: 15vmin 30vmin 18vmin 20vmin; 
+  grid-template-columns: 15vmin 30vmin 20vmin 20vmin; 
   font-size: 15px;
   gap: 5px;
-  border-top: 2px dashed darkblue;
+  border-top: 2px dashed black;
   align-items: center;
   margin: 5px;
   padding: 3px;
 }
+
+#msg {
+  font-style: italic;
+}
+
 #reply-button{
   display: grid;
-  grid-template-columns: span 3;
   justify-content: center;
 }
 
+
+.buttons{
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0;
+  border: 1px solid #000;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 16px;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 6px 10px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+  font-family: 'Spline Sans Mono', monospace;
+  margin: auto;
+  margin-top: 6px;
+}
+
+.delete-button{
+  outline: 0;
+  grid-gap: 8px;
+  align-items: center;
+  background: 0 0;
+  border: 1px solid red;
+  border-radius: 4px;
+  cursor: pointer;
+  display: inline-flex;
+  flex-shrink: 0;
+  font-size: 12px;
+  color: red;
+  gap: 8px;
+  justify-content: center;
+  line-height: 1.5;
+  overflow: hidden;
+  padding: 4px 8px;
+  text-decoration: none;
+  text-overflow: ellipsis;
+  transition: all .14s ease-out;
+  white-space: nowrap;
+  font-family: 'Spline Sans Mono', monospace;
+  margin: auto;
+}
 

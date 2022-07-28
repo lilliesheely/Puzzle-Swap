@@ -28,6 +28,7 @@ function create(req, res){
 function index(req, res){ 
     Message.find({ $or: [{owner: req.user._id}, {requester: req.user._id} ]})
         .populate('puzzle')
+        .sort('-updatedAt')
         .exec(function(err, messages){
         res.render('messages/index', {title: 'All Messages', messages})
     });
@@ -36,14 +37,14 @@ function index(req, res){
 function show(req, res) {
     for (let key in req.body) {
         if (req.body[key] === '') delete req.body[key];
-      }
+    }
     Message.findById(req.params.id) 
         .populate('puzzle')
         .exec(function(err, message) {
             message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
             res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
         })
-    }; 
+} 
 
      
 function createReply(req, res) {

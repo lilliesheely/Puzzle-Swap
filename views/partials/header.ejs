@@ -3,21 +3,22 @@
   <head>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Bevan&family=Spline+Sans+Mono:wght@300&display=swap" rel="stylesheet">
     <link rel='stylesheet' href='/stylesheets/style.css' />
     <title><%= title %></title>
   </head>
   <body>
     <nav>
-        <a href="/puzzles">All Puzzles</a>  
-        <% if (user) { %>     
-        <a href="/puzzles/new">Add New</a>    
-        <a href="/messages">Messages</a>
-        <a href="/logout">Log Out</a>
-        <img class="avatar" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer">
-        <% } else { %>
-        <a href="/auth/google" class="login">Register/Log In</a>
-        <% } %>
+      <div><a href="/puzzles">All Puzzles</a></div>  
+      <% if (user) { %>     
+      <div><a href="/puzzles/new">Add New</a></div>   
+      <div><a href="/messages">Messages</a></div> 
+
+      <div class="nav2"><a href="/logout">Log Out</a>
+      <img id="avatar" src="<%= user.avatar %>" alt="avatar" referrerpolicy="no-referrer"></div> 
+      <% } else { %>
+      <div class="nav2"><a href="/auth/google">Register/Log In</a><img src="https://i.imgur.com/FHjYyi0.png" id="avatar"></div> 
+      <% } %>
     </nav>
     <h1><%= title %></h1>
   

@@ -1,27 +1,26 @@
 <%- include('../partials/header')%>
 
-<section class="message-page" >
+<section class="message-index-page" >
     <table>
         <thead>
-            <tr class="message-table" id="message-headings-index">
+            <tr class="message-index-headings">
                 <th></th>
-                <th>Requester</th>
                 <th>Puzzle Name</th>
+                <th>Requester</th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             <% messages.forEach(function(m) {%>
-                <tr class="each-message-index">
-                    <td><img src="<%= m.puzzle.image %>" class="message-index-image" alt="puzzle"></td>
-                    <td><%= m.requesterName %></td>
+                <tr class="message-index-body">
+                    <td><img src="<%= m.puzzle.image %>" id="message-index-image" alt="puzzle"></td>
                     <td><%= m.puzzle.name %></td>
-                    <td><a href="/messages/<%= m._id%>">Message &nbsp;Details</a></td>
+                    <td><%= m.requesterName %></td>
+                    <td id="message-index-link"><a href="/messages/<%= m._id%>">Message Details</a></td>
                 </tr>
             <% }) %>
         </tbody>
     </table>
     <br><br><br>
-    <div id="disclaimer">*DISCLAIMER: If your message is no longer here, please know the puzzle is no longer available to borrow*</div>   
 </section>
 <%- include('../partials/footer')%>

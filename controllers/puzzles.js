@@ -63,7 +63,7 @@ function edit(req, res){
 }
 
 function update(req, res){ 
-    Puzzle.findOneAndUpdate({_id: req.params.id}, req.body, function(err, puzzle) {
+    Puzzle.findOneAndUpdate({_id: req.params.id, user: req.user._id}, req.body, function(err, puzzle) {
         if (err) return res.render(`/puzzles/${puzzle._id}/edit`);
         res.redirect(`/puzzles/${puzzle._id}` );
     });
