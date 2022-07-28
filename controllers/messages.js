@@ -21,7 +21,7 @@ function create(req, res){
     const message = new Message(req.body);
     message.replies.push(req.body); 
     message.save(function(err, message){
-        res.redirect(`/messages/${message._id}`);
+        res.redirect(`/messages`);
     });
 } 
 
@@ -35,14 +35,14 @@ function index(req, res){
 }
 
 function show(req, res) {
-    for (let key in req.body) {
-        if (req.body[key] === '') delete req.body[key];
-    }
     Message.findById(req.params.id) 
         .populate('puzzle')
         .exec(function(err, message) {
-            message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
-            res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
+            message.read = true; 
+            message.save(function(){ 
+                message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
+                res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
+            });
         })
 } 
 

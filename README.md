@@ -22,7 +22,12 @@ Neighborhood puzzle swap is an online application where people nearby Russian Hi
 - JavaScript
 - Markdown
 - MongoDB
+- Mongoose ODM
 - Express
+- Node.js
+- Heroku
+- GitHub
+- VS Code
 
 
 ## <div align="center">Getting Started</div>
@@ -31,10 +36,10 @@ Neighborhood puzzle swap is an online application where people nearby Russian Hi
 Click above to check out the Neighborhood Puzzle Swap! Register to be able to message puzzle owners and start borrowing puzzles!
 
 ## <div align="center">Future Upgrades</div>
-- [ ] Create an 'On loan' feature, where the owner can mark the puzzle as 'on-loan' and it will no longer display in the puzzle index as an available puzzle. 
-- [ ] Send an email to a user when they receive a new message
-- [ ] Expand to more neighborhoods and create filters for 'nearby' 
-- [ ] Create schemas for more types of items to lend/borrow (i.e. books, misc household items, etc)
+- [ ] Create an 'on-loan' feature, where the owner can mark the puzzle as 'on-loan' and it will no longer display in the puzzle index as an available puzzle. 
+- [ ] Send an email to a user when they receive a new message.
+- [ ] Expand to more neighborhoods and create filters for 'nearby'. 
+- [ ] Create schemas for more types of items to lend/borrow (i.e. books, misc household items, etc).
 
 ## <div align="center">Acknowledgements</div>
 Thank you to everyone who helped get this game working! 

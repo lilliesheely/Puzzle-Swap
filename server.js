@@ -40,6 +40,28 @@ app.use(function(req, res, next){
   next(); 
 });
 
+const Message = require('./models/message');
+app.use(async function(req, res, next) {
+  req.unreadCount = 0;
+  res.locals.unreadCount = 0;
+  if (!req.user) return next();
+  const messages = await Message.find({
+    $or: [{owner: req.user._id}, {requester: req.user._id} ],
+    read: false
+  });
+  let count = messages.length;
+  messages.forEach(function(msg) {
+    msg.replies.forEach(function(reply) { 
+      count += reply.user.equals(req.user._id) ? 0 : 1;
+    });
+  });
+  req.unreadCount = count;
+  res.locals.unreadCount = count;
+  next();
+});
+
+
+
 const isLoggedIn = require('./config/auth');
 
 app.use('/', indexRouter);

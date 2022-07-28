@@ -7,7 +7,11 @@ const repliesSchema = new Schema ({
         type: Schema.Types.ObjectId, 
         ref: "User",
     },
-    userName: String
+    userName: String, 
+    read: {
+        type: Boolean,
+        default: false
+    } 
 }, {
     timestamps: true
 })
