@@ -114,8 +114,8 @@ h2 {
 /*-- Show Puzzles View (show page)---*/
 
 .image-show {
-  max-width: 200px;
-  max-height: 400px;
+  max-width: 400px;
+  max-height: 450px;
 }
 
 #puzzle-description {
