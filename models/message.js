@@ -33,8 +33,7 @@ const messageSchema = new Schema ({
     puzzle: {
         type: Schema.Types.ObjectId, 
         ref: 'Puzzle'
-    }, 
-    sent: Boolean
+    } 
 }, {
     timestamps: true 
 })

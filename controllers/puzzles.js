@@ -13,10 +13,10 @@ module.exports = {
 
 function index(req, res) {
    const puzzle = Puzzle.find({})
-   .sort('-pieceAmount')
-   .exec(function(err, puzzles) {
-       res.render('puzzles/index', {title: 'All Puzzles', puzzles}); 
-   }); 
+        .sort('-pieceAmount')
+        .exec(function(err, puzzles) {
+            res.render('puzzles/index', {title: 'All Puzzles', puzzles}); 
+        }); 
 }
 
 function newPuzzle(req, res) { 
@@ -38,7 +38,7 @@ function show(req, res){
     Puzzle.findById(req.params.id, function(err, puzzle) {
         Message.find({puzzle: req.params.id}, function(err, message) {
             res.render('puzzles/show', {title: `${puzzle.name}`, puzzle, message});
-        })  
+        });  
     }); 
 }
 

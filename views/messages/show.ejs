@@ -6,34 +6,32 @@
         <input type="submit" value="Send Reply" class="buttons" >
     </form>
     <br><br>
-<table>
-    <thead> 
-        <tr class="message-show-headings">  
-            <th>User</th>
-            <th>Message</th>
-            <th>Sent</th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <% message.replies.forEach(function(m) { %>
-            <tr class="message-show-replies">
-                <td><%= m.userName %></td>
-                <td id="msg" ><%= m.msg %></td>
-                <td><%= m.createdAt%></td>
-                <td> 
-                    <% if (user && user._id.equals(m.user) ) { %> 
-                        <form action="/messages/<%= m._id %>?_method=DELETE" method ="POST"> 
-                            <button class="delete-button" class="buttons"
-                            type="submit">Delete Message</button> </form>   
-                    <% } %>
-                </td>
+    <table>
+        <thead> 
+            <tr class="message-show-headings">  
+                <th>User</th>
+                <th>Message</th>
+                <th>Sent</th>
+                <th></th>
             </tr>
-        <% }) %>
-    </tbody>    
-</table>
-
-    
+        </thead>
+        <tbody>
+            <% message.replies.forEach(function(m) { %>
+                <tr class="message-show-replies">
+                    <td><%= m.userName %></td>
+                    <td id="msg" ><%= m.msg %></td>
+                    <td><%= m.createdAt%></td>
+                    <td> 
+                        <% if (user && user._id.equals(m.user) ) { %> 
+                            <form action="/messages/<%= m._id %>?_method=DELETE" method ="POST"> 
+                                <button class="delete-button" class="buttons" type="submit">Delete Message</button> 
+                            </form>   
+                        <% } %>
+                    </td>
+                </tr>
+            <% }) %>
+        </tbody>    
+    </table>
 </section>
 
 <%- include('../partials/footer')%>

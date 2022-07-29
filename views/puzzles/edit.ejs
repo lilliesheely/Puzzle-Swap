@@ -12,14 +12,14 @@
     <label>Dimensions:</label>
     <input type="num" name="dimensions" value="<%= puzzle.dimensions %>">
     <label>Difficulty Level:</label>
-    <select name="difficultyRating" value="<%= puzzle.difficultyRating %>" >
+    <select name="difficultyRating" value="<%= puzzle.difficultyRating %>">
         <option value="Easy">Easy</option>
         <option value="Easy, but takes awhile">Easy, but takes awhile</option>
         <option value="Challenging">Challenging</option>
         <option value="Tough">Tough</option>
         <option value="Practically Impossible">Practically Impossible</option>
     </select>
-    <input class="buttons" type="submit" value="Save Puzzle" id="new-button" >
+    <input class="buttons" type="submit" value="Save Puzzle" id="new-button">
 </form>
 
 <%- include('../partials/footer') %>

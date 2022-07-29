@@ -29,22 +29,21 @@ function index(req, res){
     Message.find({ $or: [{owner: req.user._id}, {requester: req.user._id} ]})
         .populate('puzzle')
         .sort('-updatedAt')
-        .exec(function(err, messages){
+        .exec(function(err, messages) {
         res.render('messages/index', {title: 'All Messages', messages})
     });
 }
-
 
 function show(req, res) {
     const message = Message.findById(req.params.id) 
         .populate('puzzle')
         .exec(function(err, message) {
             message.read = true; 
-            message.save(function(err){ 
+            message.save(function(err) { 
                 message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
                 res.render('messages/show', {title: `${message.puzzle.name}`, message});
             });
-        })
+        });
 } 
 
 function createReply(req, res) {
@@ -54,7 +53,7 @@ function createReply(req, res) {
         message.replies.push(req.body);
         message.save(function(err) {
         res.redirect(`/messages/${message._id}`);
-        })
+        });
     });
 }
 
