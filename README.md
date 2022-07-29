@@ -7,13 +7,14 @@ Neighborhood puzzle swap is an online application where people nearby Russian Hi
 
 | Description | Screenshot |
 |------------ | ------------|
-| <h3 align="center">Welcome Page</h3> | <img src="" width="700"/> |
-| <h3 align="center">Puzzle Index</h3> | <img src="" width="700"/> |
-| <h3 align="center">Individual Puzzle View</h3> | <img src="" width="700"/> |
-| <h3 align="center">Add New Puzzle</h3> | <img src="" width="700"/> |
+| <h3 align="center">Welcome Page</h3> | <img src="https://i.imgur.com/kSeh72Z.png" width="700"/> |
+| <h3 align="center">Puzzle Index</h3> | <img src="https://i.imgur.com/JL3tzdr.png" width="700"/> |
+| <h3 align="center">Individual Puzzle View (non-puzzle owner)</h3> | <img src="https://i.imgur.com/Iqciqqi.png" width="700"/> |
+| <h3 align="center">Individual Puzzle View (puzzle owner)</h3> | <img src="https://i.imgur.com/0byfgO7.png" width="700"/> |
+| <h3 align="center">Add New Puzzle</h3> | <img src="https://i.imgur.com/mOrlKS7.png" width="700"/> |
 | <h3 align="center">Edit Existing Puzzle</h3> | <img src="" width="700"/> |
-| <h3 align="center">Message Index</h3> | <img src="" width="700"/> |
-| <h3 align="center">Message View</h3> | <img src="" width="700"/> |
+| <h3 align="center">Message Index</h3> | <img src="https://i.imgur.com/jrOycU2.png" width="700"/> |
+| <h3 align="center">Message View</h3> | <img src="https://i.imgur.com/8KRY3b3.png" width="700"/> |
 </details>
 
 ## <div align="center">Built With</div>

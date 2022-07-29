@@ -51,6 +51,9 @@ nav {
   width: 800px; 
   height: 422px;
 }
+h2 {
+  font-weight: 400;
+}
 
 /*-- All Puzzles View (index page) ---*/
 .puzzle-index {
