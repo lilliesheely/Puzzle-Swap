@@ -42,7 +42,7 @@ function show(req, res) {
             message.read = true; 
             message.save(function(err){ 
                 message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
-                res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
+                res.render('messages/show', {title: `${message.puzzle.name}`, message});
             });
         })
 } 

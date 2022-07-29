@@ -60,8 +60,6 @@ app.use(async function(req, res, next) {
   next();
 });
 
-
-
 const isLoggedIn = require('./config/auth');
 
 app.use('/', indexRouter);

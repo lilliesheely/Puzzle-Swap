@@ -1,36 +1,30 @@
 <%- include('../partials/header') %>
 
-<section>
-   <img src="<%= puzzle.image %>" alt="puzzle" class="image-show">
-    <br><br><br>
-    <div><%= puzzle.name%></div>
-    <div><%= puzzle.description%></div>
-    <div><%= puzzle.pieceAmount%> pieces</div>
-    <div><%= puzzle.dimensions%></div>
-    <div><%= puzzle.difficultyRating%></div>
+<section class="puzzle-show-page">
+    <img src="<%= puzzle.image %>" alt="puzzle" class="image-show">
+    <div id="puzzle-description"><%= puzzle.description%></div>
     <br>
- 
+    <div class="puzzle-show-detals">
+        <div><%= puzzle.pieceAmount%> pieces</div>
+        <br>
+        <div class="minor-details"><%= puzzle.dimensions%></div>
+        <div class="minor-details"><%= puzzle.difficultyRating%></div>
+    </div>
+    <br>
     <% if (user && user._id.equals(puzzle.user) ) { %> 
-        <a href="/puzzles/<%= puzzle._id %>/edit">Edit puzzle</a>
+        <a href="/puzzles/<%= puzzle._id %>/edit">Edit Puzzle</a>
         <br><br><br>
         <form action="/puzzles/<%= puzzle._id%>?_method=DELETE" method = "POST"> 
             <button class="delete-button" type="submit">Delete Puzzle</button> 
-        </form>   
-        
+        </form>    
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
-     
         <div>Want to borrow? <br> Send the owner a message below!</div>
         <br>
         <form action="/puzzles/<%= puzzle._id%>/owner/<%= puzzle.user%>/messages %>" method="POST">
-            <textarea style="width:300px; height:100px" name="msg"></textarea> <br> <br>
+            <textarea style="width:300px; height:65px" name="msg"></textarea> <br> <br>
             <input class="buttons" type="submit" value="Send Message">
         </form>
     <% } %>
-
-    
-<br><br><br>
-     
- 
 </section>
 
 <%- include('../partials/footer') %>

@@ -5,8 +5,10 @@
         <thead>
             <tr class="message-index-headings">
                 <th></th>
+                <% if (messages.length) { %> 
                 <th>Puzzle Name</th>
                 <th>Requester</th>
+                <% } %> 
                 <th></th>
             </tr>
         </thead>
@@ -14,7 +16,7 @@
             <% messages.forEach(function(m) {%>
                 <tr class="message-index-body">
                     <td><img src="<%= m.puzzle.image %>" id="message-index-image" alt="puzzle"></td>
-                    <td><%= m.puzzle.name %></td>
+                    <td id="puzzle-name-index"><%= m.puzzle.name %></td>
                     <td><%= m.requesterName %></td>
                     <td id="message-index-link"><a href="/messages/<%= m._id%>">Message Details</a></td>
                 </tr>
@@ -23,4 +25,5 @@
     </table>
     <br><br><br>
 </section>
+
 <%- include('../partials/footer')%>

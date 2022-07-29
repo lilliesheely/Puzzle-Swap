@@ -1,16 +1,18 @@
 * {
-  font-family: 'Spline Sans Mono', monospace;
+  font-family: 'Nanum Gothic', sans-serif;
   color: #01080a;
 }
 
-a {
+nav > div > a {
   color: #01080a;
+  text-decoration: none;
 }
 
 body {
   height: 100vh;
   text-align: center; 
   margin: 0;
+  background-color: #F3F4ED;
 }
 
 /*-- Nav Bar ---*/
@@ -18,7 +20,7 @@ body {
 nav {
   display: flex;
   justify-content: flex-start;
-  background-color: antiquewhite;
+  background-color: #94B49F;
   align-items: center;
   padding: 10px;
   padding-left: 18px;
@@ -51,38 +53,44 @@ nav {
 }
 
 /*-- All Puzzles View (index page) ---*/
-.puzzle-index{
+.puzzle-index {
   display: flex;
+  flex-wrap: wrap ;
   justify-content: center;
   grid-template-rows: 40vmin;
   padding: 25px;  
 }
 
-.puzzle-index-body {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 5vmin;
-  justify-content: center;
-  align-content: center;
-}
-
 .each-puzzle {
   display: grid;
   border: 4px;
+  border-radius: 15%;
   border-style: dotted;
   justify-content: center;
   align-items: center;
   text-align: center;
-  width: 40vh;
-  padding: 5px;
+  width: 40vmin;
+  padding: 6px;
+  margin: 15px;
+  line-height: 25px;
 }
 
 #image-index { 
-  max-width: 275px;
-  max-height: 600px;
+  max-width: 35vmin;
+  max-height: 55vmin;
+  padding: 5px;
 }
 
-/*-- Add puzzle form (new page)---*/
+#puzzle-name {
+  font-weight: bold;
+  font-size: 25px;
+}
+
+#puzzle-details-link {
+  font-size: 20px;
+}
+
+/*-- Add/Edit puzzle form (new/edit page)---*/
 
 #new-puzzle-form {
   display: grid;
@@ -90,7 +98,7 @@ nav {
   justify-content: center;
   text-align: left;
   gap: 5px; 
-  font-family: 'Spline Sans Mono', monospace;
+  font-family: 'Nanum Gothic', sans-serif;
 }
 
 #new-button {
@@ -102,8 +110,20 @@ nav {
 
 /*-- Show Puzzles View (show page)---*/
 .image-show {
-  max-width: 500px;
-  max-height: 600px;
+  max-width: 200px;
+  max-height: 400px;
+}
+
+#puzzle-description {
+  font-style: italic;
+}
+
+.minor-details {
+  font-size: 13px;
+}
+
+.puzzle-show-page {
+  height: 100vh;
 }
 
 /*-- Message Index (message/index page)---*/
@@ -117,35 +137,37 @@ nav {
 
 .message-index-headings{
   display: grid;
-  grid-template-columns: 40vmin 18vmin 20vmin 29vmin; 
+  grid-template-columns: 35vmin 18vmin 20vmin 29vmin; 
   font-size: 16px;
   justify-content: left;
   gap: 4px;
-  padding: 2vmin;
+  margin-bottom: 5px;
 }
-
 
 .message-index-body {
   display: grid;
-  grid-template-columns: 40vmin 18vmin 20vmin 29vmin; 
+  grid-template-columns: 35vmin 18vmin 20vmin 29vmin; 
   font-size: 16px;
   border-style: dashed;
   border-color: black;
   justify-content: left;
   align-items: center;
-  padding: 2vmin;
   gap: 4px;
   margin: 10px;
 }
 
 #message-index-image {
-  max-width: 275px;
-  max-height: 600px;
+  max-width: 175px;
+  max-height: 250px;
   padding: 10px;
 }
 
 #message-index-link {
   font-size: 15px;
+}
+
+#puzzle-name-index {
+  font-size: 25px;
 }
 
 /*-- Message Show (show page)---*/
@@ -171,7 +193,7 @@ nav {
   grid-template-columns: 15vmin 30vmin 20vmin 20vmin; 
   font-size: 15px;
   gap: 5px;
-  border-top: 2px dashed black;
+  border-top: 2px dashed #94B49F;;
   align-items: center;
   margin: 5px;
   padding: 3px;
@@ -179,13 +201,13 @@ nav {
 
 #msg {
   font-style: italic;
+  font-weight: bold;
 }
 
 #reply-button{
   display: grid;
   justify-content: center;
 }
-
 
 .buttons{
   outline: 0;
@@ -207,7 +229,7 @@ nav {
   text-overflow: ellipsis;
   transition: all .14s ease-out;
   white-space: nowrap;
-  font-family: 'Spline Sans Mono', monospace;
+  font-family: 'Nanum Gothic', sans-serif;
   margin: auto;
   margin-top: 6px;
 }
@@ -233,7 +255,7 @@ nav {
   text-overflow: ellipsis;
   transition: all .14s ease-out;
   white-space: nowrap;
-  font-family: 'Spline Sans Mono', monospace;
+  font-family: 'Nanum Gothic', sans-serif;
   margin: auto;
 }
 
