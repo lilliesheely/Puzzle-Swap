@@ -33,7 +33,7 @@ Neighborhood puzzle swap is an online application where people nearby Russian Hi
 
 
 ## <div align="center">Getting Started</div>
-[Checkout the Neighborhood Puzzle Swap!](https://neighborhood-puzzle-swap.herokuapp.com/){target="_blank"} <br>
+[Checkout the Neighborhood Puzzle Swap!](https://neighborhood-puzzle-swap.herokuapp.com/) <br>
 <br>
 Click above to check out the Neighborhood Puzzle Swap! Register to be able to message puzzle owners and start borrowing puzzles!
 
