@@ -2,16 +2,14 @@
 
 <section>
    <img src="<%= puzzle.image %>" alt="puzzle" class="image-show">
-    <br>
+    <br><br><br>
     <div><%= puzzle.name%></div>
     <div><%= puzzle.description%></div>
     <div><%= puzzle.pieceAmount%> pieces</div>
     <div><%= puzzle.dimensions%></div>
     <div><%= puzzle.difficultyRating%></div>
-    
-   <br><br>
-   <div>Want to borrow? <br> Send the owner a message below!</div>
-   <br>
+    <br>
+ 
     <% if (user && user._id.equals(puzzle.user) ) { %> 
         <a href="/puzzles/<%= puzzle._id %>/edit">Edit puzzle</a>
         <br><br><br>
@@ -20,6 +18,9 @@
         </form>   
         
     <% } else if (user && !user._id.equals(puzzle.user)) { %>
+     
+        <div>Want to borrow? <br> Send the owner a message below!</div>
+        <br>
         <form action="/puzzles/<%= puzzle._id%>/owner/<%= puzzle.user%>/messages %>" method="POST">
             <textarea style="width:300px; height:100px" name="msg"></textarea> <br> <br>
             <input class="buttons" type="submit" value="Send Message">

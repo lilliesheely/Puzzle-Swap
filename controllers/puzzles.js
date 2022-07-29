@@ -42,7 +42,6 @@ function show(req, res){
     }); 
 }
 
-
 async function deletePuzzle(req, res, next) {
     try {
         const puzzle = await Puzzle.findOneAndDelete({_id: req.params.id, user: req.user._id});
@@ -54,7 +53,6 @@ async function deletePuzzle(req, res, next) {
         return next (err);
     }
 } 
-
 
 function edit(req, res){
    Puzzle.findById(req.params.id, function(err, puzzle){

@@ -8,10 +8,6 @@ const repliesSchema = new Schema ({
         ref: "User",
     },
     userName: String, 
-    read: {
-        type: Boolean,
-        default: false
-    } 
 }, {
     timestamps: true
 })

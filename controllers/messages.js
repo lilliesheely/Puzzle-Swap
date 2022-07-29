@@ -34,19 +34,19 @@ function index(req, res){
     });
 }
 
+
 function show(req, res) {
-    Message.findById(req.params.id) 
+    const message = Message.findById(req.params.id) 
         .populate('puzzle')
         .exec(function(err, message) {
             message.read = true; 
-            message.save(function(){ 
+            message.save(function(err){ 
                 message.replies.sort((a,b) => (b.createdAt) - (a.createdAt));
                 res.render('messages/show', {title: `Request for puzzle: "${message.puzzle.name}"`, message});
             });
         })
 } 
 
-     
 function createReply(req, res) {
     Message.findById(req.params.id, function (err, message) {
         req.body.user = req.user._id
@@ -69,3 +69,6 @@ async function deleteReply(req, res, next) {
         return next (err);
     }
 } 
+
+
+

@@ -49,7 +49,7 @@ app.use(async function(req, res, next) {
     $or: [{owner: req.user._id}, {requester: req.user._id} ],
     read: false
   });
-  let count = messages.length;
+  let count = 0;
   messages.forEach(function(msg) {
     msg.replies.forEach(function(reply) { 
       count += reply.user.equals(req.user._id) ? 0 : 1;

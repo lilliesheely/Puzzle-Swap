@@ -135,6 +135,7 @@ nav {
   align-items: center;
   padding: 2vmin;
   gap: 4px;
+  margin: 10px;
 }
 
 #message-index-image {
